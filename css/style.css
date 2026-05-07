@@ -1,0 +1,322 @@
+@charset "UTF-8";
+
+:root {
+    --color-primary: #F79214;
+    --color-background: #ffffff;
+    --color-mask: #000000cc;
+    --color-text: #333333;
+    --font-en: 'Lato', sans-serif;
+    --font-ja: '游ゴシック', 'ヒラギノゴシック', sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+a,
+button {
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+a:hover,
+button:hover {
+    opacity: 0.7;
+}
+
+
+header {
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 36px;
+    height: 70px;
+}
+
+.header-logo__img {
+    height: 20px;
+    width: 100%;
+}
+
+
+.header-nav {
+    text-align: center;
+
+    .header-nav__hamburger {
+        cursor: pointer;
+        display: none;
+        position: relative;
+        width: 24px;
+        height: 17px;
+        margin: auto;
+        z-index: 100;
+    }
+
+    .header-nav__line {
+        position: absolute;
+        top: 50%;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #A2A2A4;
+        transform: translate(0, -50%);
+        border-radius: 10px;
+        transition: top 0.2s, transform 0.2s, opacity 0.3s;
+    }
+
+    .header-nav__line:nth-child(1) {
+        top: 0;
+    }
+
+    .header-nav__line:nth-child(3) {
+        top: 100%;
+    }
+
+    .header-nav__list {
+        display: flex;
+        align-items: center;
+        gap: 45px;
+    }
+
+    .header-nav__item {
+        a {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: var(--color-text);
+            transition: opacity 0.3s ease;
+        }
+
+        .header-nav__content {
+            font-weight: bold;
+        }
+
+        .header-nav__content--en {
+            font-family: var(--font-en);
+            font-size: 12px;
+            line-height: 14.4px;
+        }
+
+        .header-nav__content--jp {
+            font-family: var(--font-ja);
+            font-size: 10px;
+        }
+
+        .header-nav__button {
+            display: inline-block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            border: none;
+            border-radius: 38px;
+            cursor: pointer;
+            font-family: var(--font-ja);
+            font-size: 12px;
+            padding: 0 20px;
+        }
+
+    }
+
+}
+
+
+
+.fv {
+    position: relative;
+    text-align: center;
+    height: 739px;
+
+    .fv__left-rectangle {
+        position: absolute;
+        top: -70px;
+        left: 0;
+        width: 348px;
+        height: 348px;
+        z-index: -1;
+    }
+
+    .fv__right-rectangle {
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        width: 348px;
+        height: 348px;
+        z-index: -1;
+    }
+
+    .fv__fill-rectangle {
+        position: absolute;
+        top: 84px;
+        left: -70px;
+        width: 527px;
+        height: 527px;
+        z-index: -1;
+    }
+
+    .fv__main-visual {
+        position: absolute;
+        top: -70px;
+        right: 0;
+        width: 775px;
+        z-index: -1;
+    }
+
+    .fv-container {
+        max-width: 1040px;
+        padding-top: 219px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+
+        .fv-inner {
+            position: relative;
+            width: fit-content;
+        }
+
+        .fv-container__heading {
+            position: relative;
+            font-family: var(--font-ja);
+            font-size: 42px;
+            line-height: 64px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .fv-container__button {
+            display: inline-block;
+            width: 100%;
+            height: 64px;
+            line-height: 64px;
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            border: none;
+            border-radius: 38px;
+            cursor: pointer;
+            font-family: var(--font-ja);
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .fv-container__content {
+            font-family: var(--font-ja);
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        .fv-container__badge {
+            position: absolute;
+            top: -105px;
+            right: -150px;
+            margin-top: 16px;
+            width: 204px;
+            height: 204px;
+        }
+    }
+}
+
+
+@media (max-width: 1080px) {
+    .header-nav {
+
+        .header-nav__hamburger {
+            display: block;
+        }
+
+        .header-nav__list {
+            display: none;
+            position: absolute;
+            top: 0px;
+            right: -105%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--color-mask);
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .header-nav__content--en {
+            color: var(--color-background);
+        }
+
+        .header-nav__content--jp {
+            color: var(--color-primary);
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+
+    main {
+        padding-top: 52px;
+    }
+
+    .fv {
+
+        .fv__left-rectangle,
+        .fv__right-rectangle,
+        .fv__fill-rectangle {
+            display: none;
+        }
+
+        .fv__main-visual {
+            position: static;
+            width: 100%;
+            z-index: -1;
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        .fv-container {
+            padding-top: 0px;
+            padding-left: 16px;
+            padding-right: 16px;
+
+
+            .fv-container__heading {
+                font-size: 22px;
+                line-height: 36px;
+                position: relative;
+                width: fit-content;
+            }
+
+            .fv-container__button {
+                padding: 0 32px;
+            }
+
+            .fv-container__content {
+                font-size: 10px;
+                line-height: 14px;
+            }
+
+            .fv-container__badge {
+                width: 102px;
+                height: 102px;
+                top: -20px;
+                right: -110px;
+            }
+        }
+    }
+
+
+
+
+}
